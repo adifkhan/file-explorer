@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 6rem;
+  background: var(--primary-color);
+}
+.logo h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--light-color);
+}
+.user_button button {
+  padding: 0.8rem 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 2rem;
+  color: var(--primary-color);
+  background: var(--light-color);
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}

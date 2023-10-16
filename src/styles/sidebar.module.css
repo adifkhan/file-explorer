@@ -1,0 +1,66 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25rem;
+  height: 100%;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+  color: var(--light-color);
+  background: var(--secondary-color);
+  font-size: 1.5rem;
+}
+.folder_container {
+  width: 100%;
+}
+.folder_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.folder_wrapper:hover {
+  border: 1px solid var(--light-color);
+}
+.folder_wrapper .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.folder_wrapper label {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* 
+.root_folder,
+.collapsed_root_folder,
+.
+.root_folder,
+.collapsed_root_folder {
+  margin-left: -5px;
+}
+.folder_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.folder_arrow,
+.folder_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.folder_arrow {
+  margin-right: 0.5rem;
+}
+.collapsed_root_folder .folder_arrow {
+  transform: rotate(180deg);
+}
+.folder_delete {
+  font-size: 2rem;
+}
+ */
