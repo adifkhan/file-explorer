@@ -1,16 +1,27 @@
-import style from "../../styles/sidebar.module.css";
+import style from "../styles/sidebar.module.css";
 import { useState } from "react";
-import { ExplorerItem } from "../../data/folderData";
+import { ExplorerItem, FolderItem } from "../data/folderData";
 import { IoIosArrowDown } from "react-icons/io";
-import { TiDelete } from "react-icons/ti";
+import { FaFolderPlus } from "react-icons/fa6";
+import { FaFolderMinus } from "react-icons/fa6";
 import { useContext } from "react";
-import { GlobalContext } from "../../context/ContextProvider";
+import { GlobalContext } from "../context/ContextProvider";
 
 const Folder = ({ explorer }: ExplorerItem) => {
   const [expand, setExpend] = useState(false);
   const { setActiveFolder } = useContext(GlobalContext);
-  const handleFolderClick = (id: string) => {
-    setActiveFolder(id);
+  const handleFolderClick = (item: FolderItem) => {
+    setActiveFolder(item);
+  };
+  const createFolder = () => {
+    const folderName = prompt(
+      "Enter folder name (5-16) characters",
+      "New Folder"
+    );
+    console.log(folderName);
+  };
+  const removeFolder = (id: string) => {
+    console.log(id);
   };
   return (
     <div className={style.folder_container}>
@@ -22,13 +33,21 @@ const Folder = ({ explorer }: ExplorerItem) => {
           >
             <IoIosArrowDown />
           </span>
-          <label onClick={() => handleFolderClick(explorer._id)}>
+          <label onClick={() => handleFolderClick(explorer)}>
             {explorer.name}
           </label>
         </div>
-        <span className={style.delete_btn}>
-          <TiDelete />
-        </span>
+        <div className={style.folder_btns}>
+          <span title="Create Folder" onClick={createFolder}>
+            <FaFolderPlus />
+          </span>
+          <span
+            title="Remove Folder"
+            onClick={() => removeFolder(explorer._id)}
+          >
+            <FaFolderMinus />
+          </span>
+        </div>
       </div>
       <div style={{ display: expand ? "block" : "none", paddingLeft: "5px" }}>
         {explorer.explorer.length > 0 ? (

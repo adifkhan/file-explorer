@@ -1,4 +1,4 @@
-interface FolderItem {
+export interface FolderItem {
   _id: string;
   name: string;
   explorer: FolderItem[];

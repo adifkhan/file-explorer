@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 25rem;
+  width: 35rem;
   height: 100%;
   min-height: calc(100vh - 64px);
   padding: 2rem;
@@ -30,22 +30,25 @@
   display: flex;
   align-items: center;
 }
+.folder_title label {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
 .reverse_arrow,
 .arrow,
-.delete_btn {
+.folder_btns,
+.folder_btns span {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
 }
 .reverse_arrow {
   transform: rotate(180deg);
 }
-.delete_btn {
-  font-size: 2rem;
-}
-.folder_wrapper label {
-  margin-left: 0.5rem;
-  cursor: pointer;
+.folder_btns {
+  gap: 1.5rem;
 }
 
 /* 

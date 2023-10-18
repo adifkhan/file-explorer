@@ -1,5 +1,5 @@
 import style from "../../styles/sidebar.module.css";
-import Folder from "./Folder";
+import Folder from "../Folder";
 import { explorer } from "../../data/folderData";
 
 const Sidebar = () => {
