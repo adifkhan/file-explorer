@@ -19,16 +19,29 @@
   justify-content: space-between;
   width: 100%;
   padding: 0.5rem;
+  border: 1px solid transparent;
   border-radius: 5px;
   cursor: pointer;
 }
 .folder_wrapper:hover {
   border: 1px solid var(--light-color);
 }
-.folder_wrapper .arrow {
+.folder_title {
+  display: flex;
+  align-items: center;
+}
+.reverse_arrow,
+.arrow,
+.delete_btn {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.reverse_arrow {
+  transform: rotate(180deg);
+}
+.delete_btn {
+  font-size: 2rem;
 }
 .folder_wrapper label {
   margin-left: 0.5rem;

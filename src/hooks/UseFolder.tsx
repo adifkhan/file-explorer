@@ -7,9 +7,7 @@ type FolderDetailsType = {
 };
 
 const UseFolder = () => {
-  const [allFoldersDetails, setllFoldersDetails] = useState<
-    FolderDetailsType[]
-  >([]);
+  const [allFoldersDetails, setllFoldersDetails] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/folders`)
