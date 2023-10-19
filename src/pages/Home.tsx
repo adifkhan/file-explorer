@@ -10,6 +10,10 @@ const Home = () => {
   return (
     <BaseLayout>
       <div className={style.outlet}>
+        <p className={style.instruction_message}>
+          ------------ Click on folder at navigation bar to see child folders
+          ------------
+        </p>
         <div className={style.folder_container}>
           {activeFolder?.explorer?.length > 0 ? (
             activeFolder.explorer?.map((item) => (

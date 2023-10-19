@@ -3,6 +3,7 @@ import Folder from "../Folder";
 import useTraverseTree from "../../hooks/useTraverseTree";
 import useExplorer from "../../hooks/useExplorer";
 import Loading from "../Loading";
+import toast from "react-hot-toast";
 
 const Sidebar = () => {
   const { data, isLoading, refetch } = useExplorer();
@@ -22,10 +23,10 @@ const Sidebar = () => {
         .then((data) => {
           // console.log(data);
           if (!data.acknowledged) {
-            return alert("Something went wrong, try again!");
+            return toast.error("Something went wrong, try again!");
           }
           refetch();
-          return alert("Folder created successfully");
+          return toast.success("Folder created successfully!");
         });
     }
   };
@@ -42,10 +43,10 @@ const Sidebar = () => {
         .then((data) => {
           // console.log(data);
           if (!data.acknowledged) {
-            return alert("Something went wrong, try again!");
+            return toast.error("Something went wrong, try again!");
           }
           refetch();
-          return alert("Folder removed successfully");
+          return toast.success("Folder removed successfully!");
         });
     }
   };

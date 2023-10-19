@@ -52,33 +52,3 @@
 .folder_btns {
   gap: 1.5rem;
 }
-
-/* 
-.root_folder,
-.collapsed_root_folder,
-.
-.root_folder,
-.collapsed_root_folder {
-  margin-left: -5px;
-}
-.folder_box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.folder_arrow,
-.folder_delete {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.folder_arrow {
-  margin-right: 0.5rem;
-}
-.collapsed_root_folder .folder_arrow {
-  transform: rotate(180deg);
-}
-.folder_delete {
-  font-size: 2rem;
-}
- */

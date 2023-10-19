@@ -29,9 +29,17 @@
 }
 .folder_wrapper label {
   font-size: 1.5rem;
+  color: var(--primary-color);
+  text-transform: capitalize;
 }
 .empty_folder {
   text-align: center;
   width: 100%;
   font-size: 1.5rem;
+}
+.instruction_message {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
 }

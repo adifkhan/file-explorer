@@ -6,6 +6,7 @@ import { FaFolderPlus } from "react-icons/fa6";
 import { FaFolderMinus } from "react-icons/fa6";
 import { useContext } from "react";
 import { GlobalContext } from "../context/ContextProvider";
+import toast from "react-hot-toast";
 
 const Folder = ({
   explorer,
@@ -33,8 +34,8 @@ const Folder = ({
 
   //remove a folder
   const removeFolder = (item: ExplorerType) => {
-    if (item.name === "root") {
-      return alert("root folder cannot be removed!");
+    if (item._id === "65301feb5e2761322e867bd0") {
+      return toast.error("cannot remove 'Root' folder!");
     }
     const removeConfirmation = window.confirm(
       "Are you sure you want to remove this folder?"
