@@ -25,9 +25,10 @@
   align-items: center;
   justify-content: center;
   font-size: 5rem;
+  color: var(--primary-color);
 }
 .folder_wrapper label {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 .empty_folder {
   text-align: center;

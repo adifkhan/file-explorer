@@ -1,27 +1,47 @@
 import style from "../styles/sidebar.module.css";
 import { useState } from "react";
-import { ExplorerItem, FolderItem } from "../data/folderData";
+import { ExplorerType, FolderProps } from "../dataTypes/dataTypes";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFolderPlus } from "react-icons/fa6";
 import { FaFolderMinus } from "react-icons/fa6";
 import { useContext } from "react";
 import { GlobalContext } from "../context/ContextProvider";
 
-const Folder = ({ explorer }: ExplorerItem) => {
+const Folder = ({
+  explorer,
+  handleInsertNode,
+  handleRemoveNode,
+}: FolderProps) => {
   const [expand, setExpend] = useState(false);
   const { setActiveFolder } = useContext(GlobalContext);
-  const handleFolderClick = (item: FolderItem) => {
+
+  // handle the folder click and update active folder
+  const handleFolderClick = (item: ExplorerType) => {
     setActiveFolder(item);
   };
-  const createFolder = () => {
+
+  // create a new folder
+  const createFolder = (id: string) => {
     const folderName = prompt(
       "Enter folder name (5-16) characters",
       "New Folder"
     );
-    console.log(folderName);
+    if (folderName) {
+      handleInsertNode(id, folderName);
+    }
   };
-  const removeFolder = (id: string) => {
-    console.log(id);
+
+  //remove a folder
+  const removeFolder = (item: ExplorerType) => {
+    if (item.name === "root") {
+      return alert("root folder cannot be removed!");
+    }
+    const removeConfirmation = window.confirm(
+      "Are you sure you want to remove this folder?"
+    );
+    if (removeConfirmation) {
+      handleRemoveNode(item._id);
+    }
   };
   return (
     <div className={style.folder_container}>
@@ -38,27 +58,26 @@ const Folder = ({ explorer }: ExplorerItem) => {
           </label>
         </div>
         <div className={style.folder_btns}>
-          <span title="Create Folder" onClick={createFolder}>
+          <span
+            title="Create Folder"
+            onClick={() => createFolder(explorer._id)}
+          >
             <FaFolderPlus />
           </span>
-          <span
-            title="Remove Folder"
-            onClick={() => removeFolder(explorer._id)}
-          >
+          <span title="Remove Folder" onClick={() => removeFolder(explorer)}>
             <FaFolderMinus />
           </span>
         </div>
       </div>
-      <div style={{ display: expand ? "block" : "none", paddingLeft: "5px" }}>
-        {explorer.explorer.length > 0 ? (
-          explorer.explorer.map((explorer) => (
-            <Folder explorer={explorer} key={explorer._id} />
-          ))
-        ) : (
-          <p style={{ paddingLeft: "15px", fontSize: "14px", color: "dark" }}>
-            empty folder
-          </p>
-        )}
+      <div style={{ display: expand ? "block" : "none", paddingLeft: "10px" }}>
+        {explorer?.explorer?.map((explorer) => (
+          <Folder
+            explorer={explorer}
+            handleInsertNode={handleInsertNode}
+            handleRemoveNode={handleRemoveNode}
+            key={explorer._id}
+          />
+        ))}
       </div>
     </div>
   );

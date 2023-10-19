@@ -1,20 +1,16 @@
-import React, { createContext, useState } from "react";
-import { FolderItem } from "../data/folderData";
-
-type ContextProps = {
-  children: React.ReactNode;
-};
-type FolderContextType = {
-  activeFolder: FolderItem;
-  setActiveFolder: React.Dispatch<React.SetStateAction<FolderItem>>;
-};
+import { createContext, useState } from "react";
+import {
+  ContextProps,
+  ExplorerType,
+  FolderContextType,
+} from "../dataTypes/dataTypes";
 
 export const GlobalContext = createContext<FolderContextType>(
   {} as FolderContextType
 );
 export const ContextProvider = ({ children }: ContextProps) => {
-  const [activeFolder, setActiveFolder] = useState<FolderItem>(
-    {} as FolderItem
+  const [activeFolder, setActiveFolder] = useState<ExplorerType>(
+    {} as ExplorerType
   );
   return (
     <GlobalContext.Provider value={{ activeFolder, setActiveFolder }}>
