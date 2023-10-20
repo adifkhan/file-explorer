@@ -47,10 +47,9 @@ const Folder = ({
   return (
     <div className={style.folder_container}>
       <div className={style.folder_wrapper}>
-        <div className={style.folder_title}>
+        <div className={style.folder_title} onClick={() => setExpend(!expand)}>
           <span
             className={expand ? `${style.reverse_arrow}` : `${style.arrow}`}
-            onClick={() => setExpend(!expand)}
           >
             <IoIosArrowDown />
           </span>

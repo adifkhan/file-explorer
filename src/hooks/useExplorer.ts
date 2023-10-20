@@ -4,9 +4,7 @@ const useExplorer = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["explorer"],
     queryFn: async () => {
-      const response = await fetch(
-        `https://explorer-server-mocha.vercel.app/folder`
-      );
+      const response = await fetch(`https://explorer-api.vercel.app/folder`);
       if (!response.ok) {
         alert("can't fetch data, try again!");
       } else {

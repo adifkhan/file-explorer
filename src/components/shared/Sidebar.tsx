@@ -14,7 +14,7 @@ const Sidebar = () => {
   const handleInsertNode = (folderId: string, folderName: string) => {
     const finalTree = insertNode(explorer, folderId, folderName);
     if (finalTree) {
-      fetch("https://explorer-server-mocha.vercel.app/folder", {
+      fetch("https://explorer-api.vercel.app/folder", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(finalTree),
@@ -34,7 +34,7 @@ const Sidebar = () => {
   const handleRemoveNode = (folderId: string) => {
     const finalTree = removeNode(explorer, folderId);
     if (finalTree) {
-      fetch("https://explorer-server-mocha.vercel.app/folder", {
+      fetch("https://explorer-api.vercel.app/folder", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(finalTree),
