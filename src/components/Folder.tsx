@@ -1,5 +1,5 @@
 import style from "../styles/sidebar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExplorerType, FolderProps } from "../dataTypes/dataTypes";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFolderPlus } from "react-icons/fa6";
@@ -15,6 +15,10 @@ const Folder = ({
 }: FolderProps) => {
   const [expand, setExpend] = useState(false);
   const { setActiveFolder } = useContext(GlobalContext);
+
+  useEffect(() => {
+    setActiveFolder(explorer);
+  }, [explorer, setActiveFolder]);
 
   // handle the folder click and update active folder
   const handleFolderClick = (item: ExplorerType) => {

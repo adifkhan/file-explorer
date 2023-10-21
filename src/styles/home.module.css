@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 .folder_wrapper span {
   display: flex;
@@ -36,10 +37,4 @@
   text-align: center;
   width: 100%;
   font-size: 1.5rem;
-}
-.instruction_message {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
 }

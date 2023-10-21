@@ -5,19 +5,19 @@ import { useContext } from "react";
 import { GlobalContext } from "../context/ContextProvider";
 
 const Home = () => {
-  const { activeFolder } = useContext(GlobalContext);
+  const { activeFolder, setActiveFolder } = useContext(GlobalContext);
 
   return (
     <BaseLayout>
       <div className={style.outlet}>
-        <p className={style.instruction_message}>
-          ------------ Click on folder at navigation bar to see child folders
-          ------------
-        </p>
         <div className={style.folder_container}>
           {activeFolder?.explorer?.length > 0 ? (
             activeFolder.explorer?.map((item) => (
-              <div key={item._id} className={style.folder_wrapper}>
+              <div
+                key={item._id}
+                className={style.folder_wrapper}
+                onClick={() => setActiveFolder(item)}
+              >
                 <span>
                   <FaFolderClosed />
                 </span>
